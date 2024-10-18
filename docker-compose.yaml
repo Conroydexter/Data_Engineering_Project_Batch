@@ -1,0 +1,75 @@
+version: '3.8'
+
+services:
+  db:
+    image: "postgres:15"
+    hostname: localhost
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=2016
+      - POSTGRES_DB=hospital_admission
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - type: volume
+        source: postgres-data
+        target: /var/lib/postgresql/data
+    restart: on-failure
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres", "-d", "hospital_admission"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  etl:
+    build:
+      context: ./
+      dockerfile: ./dockerfiles/etl.dockerfile
+    environment:
+      - EXECUTION_MODE=test  # or production
+    restart: on-failure
+    depends_on:
+      - db
+    healthcheck:
+      test: ["CMD", "python", "/app/etl/etl_process.py", "--check"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  ml:
+    build:
+      context: ./
+      dockerfile: ./dockerfiles/ml.dockerfile
+    environment:
+      - EXECUTION_MODE=test  # or production
+    restart: on-failure
+    depends_on:
+      - db
+      - etl
+    healthcheck:
+      test: ["CMD", "python", "/app/ml/ml-process.py", "--check"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  visualization:
+    build:
+      context: ./
+      dockerfile: ./dockerfiles/visualization.dockerfile
+    ports:
+      - "8080:80"
+    restart: on-failure
+    depends_on:
+      - db
+      - etl
+      - ml
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+volumes:
+  postgres-data:
+

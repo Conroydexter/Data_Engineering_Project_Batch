@@ -1,0 +1,491 @@
+[33mcommit 03fed1af28bf2cfea50db2e8cabc5e213ef24ad8[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Conroydexter <dextreid@gmail.com>
+Date:   Fri Oct 18 13:12:55 2024 +0900
+
+    Add spark.tar to Git LFS
+
+ .gitattributes |   1 [32m+[m
+ spark.tar      | Bin [31m445972480[m -> [32m0[m bytes
+ 2 files changed, 1 insertion(+)
+
+[33mcommit 23d21711ae65ed83297482b865a1e30381c9d8ab[m
+Merge: 5d861a6 9fd6940
+Author: Conroydexter <dextreid@gmail.com>
+Date:   Fri Oct 18 12:13:21 2024 +0900
+
+    Resolve merge conflict with LICENSE
+
+[33mcommit 5d861a64e63dfb924f50b563db48364bd7ff0295[m
+Author: Conroydexter <dextreid@gmail.com>
+Date:   Fri Oct 18 12:03:55 2024 +0900
+
+    Update project with new images, modify ETL and ML processes, and update Dockerfiles
+
+ Images/Docker_App_DEP.png                   | Bin [31m0[m -> [32m220535[m bytes
+ Images/ETL_Page_DEP.png                     | Bin [31m0[m -> [32m94201[m bytes
+ Images/Home_Page_DEP.png                    | Bin [31m0[m -> [32m63018[m bytes
+ Images/ML_Page_DEP.png                      | Bin [31m0[m -> [32m106567[m bytes
+ Images/Status_Page_DEP.png                  | Bin [31m0[m -> [32m88013[m bytes
+ LICENSE                                     |  21 [31m---[m
+ code/.env                                   |   2 [32m+[m[31m-[m
+ code/etl/etl_process.py                     |   8 [32m+[m[31m-[m
+ code/ml/ml-process.py                       | 250 [32m++++++++++++++[m[31m--------------[m
+ code/visualization/htdocs/etlresult.html    |  10 [32m+[m[31m-[m
+ code/visualization/htdocs/mlresult.html     |  10 [32m+[m[31m-[m
+ code/visualization/htdocs/status.html       |  10 [32m+[m[31m-[m
+ code/visualization/visualization-process.py | 185 [32m+++++++[m[31m-------------[m
+ docker-compose.yaml                         |  48 [32m++++[m[31m--[m
+ dockerfiles/etl.dockerfile                  |  61 [32m++++[m[31m---[m
+ dockerfiles/ml.dockerfile                   |  35 [32m++[m[31m--[m
+ dockerfiles/visualization.dockerfile        |  40 [32m++[m[31m---[m
+ spark.tar                                   | Bin [31m0[m -> [32m445972480[m bytes
+ 18 files changed, 311 insertions(+), 369 deletions(-)
+
+[33mcommit 9fd694059dc31f26eaf2c8bb6a757931a49406a0[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Conroydexter <116290280+Conroydexter@users.noreply.github.com>
+Date:   Fri Oct 18 11:46:44 2024 +0900
+
+    Update README.md
+
+ README.md | 10 [32m+++++[m[31m-----[m
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+[33mcommit 6b5734f70adc18b4f9bf4dacd18e2a703bc9dbf0[m
+Author: Conroydexter <116290280+Conroydexter@users.noreply.github.com>
+Date:   Fri Oct 18 11:38:49 2024 +0900
+
+    Update README.md
+
+ README.md | 55 [32m++++++++++++++++++++++++++++++++++++++++++++++++++++++[m[31m-[m
+ 1 file changed, 54 insertions(+), 1 deletion(-)
+
+[33mcommit b4da39b673f0f38541d1a1be4f9347b9657415c8[m
+Author: Conroydexter <116290280+Conroydexter@users.noreply.github.com>
+Date:   Sun Oct 13 17:41:47 2024 +0900
+
+    Create README.md
+
+ README.md | 18 [32m++++++++++++++++++[m
+ 1 file changed, 18 insertions(+)
+
+[33mcommit 4389baf8f81174fa814b645112f3101dbe4b2e49[m
+Author: Conroydexter <116290280+Conroydexter@users.noreply.github.com>
+Date:   Sun Oct 13 14:41:00 2024 +0900
+
+    Update LICENSE
+
+ LICENSE | 2 [32m+[m[31m-[m
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[33mcommit 034f9d89418a27ad2514d9762dc36cc5c46967fc[m
+Merge: 00ff47f e5ae9e3
+Author: Conroydexter <dextreid@gmail.com>
+Date:   Sun Oct 13 13:56:50 2024 +0900
+
+    Removed README.md
+
+[33mcommit e5ae9e36d10e9f15e94462f3f608bf7d1f929607[m
+Author: Conroydexter <116290280+Conroydexter@users.noreply.github.com>
+Date:   Sun Oct 13 13:30:49 2024 +0900
+
+    Update README.md
+
+ README.md | 2 [32m+[m[31m-[m
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[33mcommit 00ff47f3a8b590d00a93fd26ea190139f6f2e34c[m
+Author: Conroydexter <116290280+Conroydexter@users.noreply.github.com>
+Date:   Sun Oct 13 12:41:02 2024 +0900
+
+    Initial commit
+
+ .idea/.gitignore                               |       8 [32m+[m
+ .idea/Data_Engineering_Project.iml             |      14 [32m+[m
+ .idea/dataSources.xml                          |      15 [32m+[m
+ .idea/inspectionProfiles/Project_Default.xml   |      36 [32m+[m
+ .idea/inspectionProfiles/profiles_settings.xml |       6 [32m+[m
+ .idea/misc.xml                                 |       7 [32m+[m
+ .idea/modules.xml                              |       8 [32m+[m
+ .idea/vcs.xml                                  |       6 [32m+[m
+ Images/Architecture.png                        |     Bin [31m132331[m -> [32m0[m bytes
+ Images/ETLPage.png                             |     Bin [31m49773[m -> [32m0[m bytes
+ Images/HomePage.png                            |     Bin [31m50995[m -> [32m0[m bytes
+ Images/MLPage.png                              |     Bin [31m47740[m -> [32m0[m bytes
+ Images/Project_DE_Architecture.png             |     Bin [31m0[m -> [32m422999[m bytes
+ Images/StatusPage.png                          |     Bin [31m47508[m -> [32m0[m bytes
+ Images/TemperatureETL.png                      |     Bin [31m43582[m -> [32m0[m bytes
+ Images/TemperatureEurope.png                   |     Bin [31m35184[m -> [32m0[m bytes
+ Images/TemperatureSouthAmerica.png             |     Bin [31m44014[m -> [32m0[m bytes
+ __pycache__/dbconfig.cpython-311.pyc           |     Bin [31m0[m -> [32m280[m bytes
+ __pycache__/dbstatus.cpython-311.pyc           |     Bin [31m0[m -> [32m4466[m bytes
+ code/.env                                      |       8 [32m+[m
+ code/etl/README.md                             |      28 [32m+[m[31m-[m
+ code/etl/etl_process.py                        |     422 [32m+[m[31m-[m
+ code/lib/dbconfig.py                           |       4 [31m-[m
+ code/lib/dbstatus.py                           |      50 [31m-[m
+ code/libs/postgresql-42.7.4.jar                |     Bin [31m0[m -> [32m1086687[m bytes
+ code/ml/README.md                              |      25 [32m+[m[31m-[m
+ code/ml/__pycache__/ml-process.cpython-311.pyc |     Bin [31m0[m -> [32m7879[m bytes
+ code/ml/ml-process.py                          |     425 [32m+[m[31m-[m
+ code/visualization/README.md                   |      39 [32m+[m[31m-[m
+ code/visualization/htdocs/etlresult.html       |      63 [32m+[m
+ code/visualization/htdocs/index.html           |      29 [32m+[m
+ code/visualization/htdocs/mlresult.html        |      63 [32m+[m
+ code/visualization/htdocs/status.html          |      63 [32m+[m
+ code/visualization/nginx/default.conf          |      44 [31m-[m
+ code/visualization/nginx_config/nginx.conf     |      48 [32m+[m
+ code/visualization/pages/etlresult.html        |       2 [31m-[m
+ code/visualization/pages/index.html            |      19 [31m-[m
+ code/visualization/pages/mlresult.html         |       2 [31m-[m
+ code/visualization/pages/status.html           |       2 [31m-[m
+ code/visualization/visualization-process.py    |     313 [32m+[m[31m-[m
+ data/city_temperature-1.csv                    | 1500000 [31m---------------------[m
+ data/city_temperature-2.csv                    | 1406329 [31m-------------------[m
+ data/healthcare_dataset.csv                    |   55501 [32m+[m
+ dbconfig.py                                    |       4 [32m+[m
+ dbstatus.log                                   |       0
+ dbstatus.py                                    |      61 [32m+[m
+ docker-compose.yaml                            |      11 [32m+[m[31m-[m
+ dockerfiles/etl.dockerfile                     |      44 [32m+[m[31m-[m
+ dockerfiles/ml.dockerfile                      |      51 [32m+[m[31m-[m
+ dockerfiles/visualization.dockerfile           |      67 [32m+[m[31m-[m
+ 50 files changed, 56771 insertions(+), 2907046 deletions(-)
+
+[33mcommit 4242b74cc701a468772fc2a556175e5f64a85774[m
+Author: Conroydexter <116290280+Conroydexter@users.noreply.github.com>
+Date:   Sun Oct 13 12:33:05 2024 +0900
+
+    Update README.md
+
+ README.md | 22 [32m++++++++++++++++++[m[31m----[m
+ 1 file changed, 18 insertions(+), 4 deletions(-)
+
+[33mcommit ba2124db867dfac645c2955e5a08c4e6fae7f89b[m
+Author: Conroydexter <116290280+Conroydexter@users.noreply.github.com>
+Date:   Fri Oct 4 21:26:52 2024 +0900
+
+    Update README.md
+
+ README.md | 9 [32m++++++++[m[31m-[m
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+[33mcommit 134887ce78ba9cc7fd0d79d4a08b340d80195bc2[m
+Author: Conroydexter <116290280+Conroydexter@users.noreply.github.com>
+Date:   Mon Sep 9 19:08:19 2024 +0900
+
+    Initial commit
+
+ README.md | 2 [32m++[m
+ 1 file changed, 2 insertions(+)
+
+[33mcommit 26d296eab91be411c22661600e262fa6f7890740[m
+Author: vcmueller <vanessa.cmueller@icloud.com>
+Date:   Wed May 11 16:59:30 2022 +0200
+
+    Update documentation
+
+ README.md | 10 [32m+++++++++[m[31m-[m
+ 1 file changed, 9 insertions(+), 1 deletion(-)
+
+[33mcommit d946d8a3a416eb11985f245aa8fc3ccf931fdc7c[m
+Author: vcmueller <vanessa.cmueller@icloud.com>
+Date:   Wed May 11 16:31:30 2022 +0200
+
+    Update documentation
+
+ README.md                    | 16 [32m+++++++++[m[31m-------[m
+ code/etl/README.md           |  8 [32m++++[m[31m----[m
+ code/ml/README.md            |  6 [32m+++[m[31m---[m
+ code/visualization/README.md |  8 [32m+++++[m[31m---[m
+ 4 files changed, 21 insertions(+), 17 deletions(-)
+
+[33mcommit 2cea93e4912f69f38f8e46b2d7b8d25557543a5c[m
+Merge: 89c9b7e d252e4d
+Author: vcmueller <vanessa.cmueller@icloud.com>
+Date:   Tue May 10 21:11:27 2022 +0200
+
+    Merge branch 'main' of https://github.com/vcmueller/project-data-engineering
+
+[33mcommit 89c9b7eeca86f28167acffd7168a944d04f04c70[m
+Author: vcmueller <vanessa.cmueller@icloud.com>
+Date:   Tue May 10 20:50:25 2022 +0200
+
+    Update documentation
+
+ README.md                    | 40 [32m++++++++++++++++++++++++++++[m[31m------------[m
+ code/etl/README.md           | 26 [32m+++++++++++++++++++++[m[31m-----[m
+ code/ml/README.md            | 22 [32m++++++++++++++++++[m[31m----[m
+ code/visualization/README.md |  6 [32m++++[m[31m--[m
+ 4 files changed, 71 insertions(+), 23 deletions(-)
+
+[33mcommit 797d425850df98b5675363489581fe4316759ee8[m
+Author: vcmueller <vanessa.cmueller@icloud.com>
+Date:   Tue May 10 20:49:23 2022 +0200
+
+    Fix visualization synchronization
+
+ code/visualization/visualization-process.py | 8 [32m++++++++[m
+ 1 file changed, 8 insertions(+)
+
+[33mcommit fdf48f63044e590b11400ff489b7f149410292b9[m
+Author: vcmueller <vanessa.cmueller@icloud.com>
+Date:   Tue May 10 20:48:02 2022 +0200
+
+    Add execution mode
+
+ code/etl/etl_process.py | 10 [32m++++++++[m[31m--[m
+ code/ml/ml-process.py   | 10 [32m++++++++[m[31m--[m
+ docker-compose.yaml     |  4 [32m++++[m
+ 3 files changed, 20 insertions(+), 4 deletions(-)
+
+[33mcommit d252e4d7defda819f65c2389425d1fbd8384683b[m
+Author: vcmueller <63685240+vcmueller@users.noreply.github.com>
+Date:   Sun May 8 20:37:23 2022 +0200
+
+    Create LICENSE
+
+ LICENSE | 21 [32m+++++++++++++++++++++[m
+ 1 file changed, 21 insertions(+)
+
+[33mcommit 5d1f11df4a21ecd0d13b73e895dcda792acbfb31[m
+Author: vcmueller <vanessa.cmueller@icloud.com>
+Date:   Sun May 8 20:27:46 2022 +0200
+
+    Update documentation
+
+ README.md                    | 20 [32m++++++++++[m[31m----------[m
+ code/visualization/README.md |  2 [32m++[m
+ 2 files changed, 12 insertions(+), 10 deletions(-)
+
+[33mcommit 3a0c78656e3753a7e63e19779d81c8858f822357[m
+Author: vcmueller <vanessa.cmueller@icloud.com>
+Date:   Sun May 8 20:27:04 2022 +0200
+
+    Fix visualization execution
+
+ code/visualization/visualization-process.py | 20 [32m+++++++++++++[m[31m-------[m
+ 1 file changed, 13 insertions(+), 7 deletions(-)
+
+[33mcommit e2e108cd6c58217ccc614968cdc9f84ca39fff0e[m
+Author: vcmueller <vanessa.cmueller@icloud.com>
+Date:   Sun May 8 00:45:04 2022 +0200
+
+    Update documentation
+
+ README.md | 4 [32m++[m[31m--[m
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+[33mcommit d7b66fef10bafc72806d6aede83c4f388cf75eb8[m
+Author: vcmueller <vanessa.cmueller@icloud.com>
+Date:   Sun May 8 00:40:10 2022 +0200
+
+    Update documentation
+
+ code/etl/README.md           | 2 [32m+[m[31m-[m
+ code/visualization/README.md | 4 [32m++[m[31m--[m
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+[33mcommit b35d16c3ff9179f10678665b35ae68f00c89a363[m
+Author: vcmueller <vanessa.cmueller@icloud.com>
+Date:   Sun May 8 00:32:28 2022 +0200
+
+    Update links in the documentation
+
+ README.md                                              | 10 [32m+++++[m[31m-----[m
+ code/etl/{ETLInfo.md => README.md}                     |  0
+ code/ml/{MLInfo.md => README.md}                       |  0
+ code/visualization/{VisualizationInfo.md => README.md} |  0
+ 4 files changed, 5 insertions(+), 5 deletions(-)
+
+[33mcommit 4021643812e93f79f683e7374a7c83311f10acac[m
+Author: vcmueller <vanessa.cmueller@icloud.com>
+Date:   Sun May 8 00:27:07 2022 +0200
+
+    Add documentation
+
+ {Architecture => Images}/Architecture.png | Bin
+ Images/ETLPage.png                        | Bin [31m0[m -> [32m49773[m bytes
+ Images/HomePage.png                       | Bin [31m0[m -> [32m50995[m bytes
+ Images/MLPage.png                         | Bin [31m0[m -> [32m47740[m bytes
+ Images/StatusPage.png                     | Bin [31m0[m -> [32m47508[m bytes
+ Images/TemperatureETL.png                 | Bin [31m0[m -> [32m43582[m bytes
+ Images/TemperatureEurope.png              | Bin [31m0[m -> [32m35184[m bytes
+ Images/TemperatureSouthAmerica.png        | Bin [31m0[m -> [32m44014[m bytes
+ README.md                                 |  73 [32m+++++++++++++++++++++++++[m[31m-----[m
+ code/etl/ETLInfo.md                       |  25 [32m++++++++++[m
+ code/ml/MLInfo.md                         |  22 [32m+++++++++[m
+ code/visualization/VisualizationInfo.md   |  38 [32m++++++++++++++++[m
+ 12 files changed, 146 insertions(+), 12 deletions(-)
+
+[33mcommit 806df66cf546b20639b0559277d25c503dc624a5[m
+Author: vcmueller <vanessa.cmueller@icloud.com>
+Date:   Sun May 8 00:23:46 2022 +0200
+
+    Update code
+
+ code/ml/ml-process.py                       | 5 [32m++[m[31m---[m
+ code/visualization/visualization-process.py | 2 [32m+[m[31m-[m
+ 2 files changed, 3 insertions(+), 4 deletions(-)
+
+[33mcommit 7b13164eb191897796ed59bfcb02df4e75a81b65[m
+Author: vcmueller <vanessa.cmueller@icloud.com>
+Date:   Sun May 1 21:08:00 2022 +0200
+
+    Add comments and improve code
+
+ code/etl/etl_process.py                     | 56 [32m+++++++++++[m[31m------[m
+ code/lib/dbstatus.py                        |  4 [32m+[m[31m-[m
+ code/ml/ml-process.py                       | 54 [32m+++++++++++[m[31m-----[m
+ code/visualization/pages/index.html         | 15 [32m++[m[31m---[m
+ code/visualization/visualization-process.py | 95 [32m+++++++++++[m[31m------------------[m
+ docker-compose.yaml                         |  4 [32m+[m[31m-[m
+ 6 files changed, 121 insertions(+), 107 deletions(-)
+
+[33mcommit 856bb67f3c7e2940ae292ba0c4a563e828446c6a[m
+Author: vcmueller <vanessa.cmueller@icloud.com>
+Date:   Sun May 1 21:05:31 2022 +0200
+
+    Clean up unnecessary files
+
+ code/etl/testetlcode.ipynb              | 734 [31m------------------------------[m
+ code/ml/testmlcode.ipynb                | 774 [31m--------------------------------[m
+ code/visualization/pages/mapresult.html |   2 [31m-[m
+ code/visualization/testbokehcode.ipynb  | 317 [31m-------------[m
+ 4 files changed, 1827 deletions(-)
+
+[33mcommit a89aaf2f049ad5421a21ec1f86cefd1aa7b20028[m
+Author: vcmueller <vanessa.cmueller@icloud.com>
+Date:   Sun Apr 17 17:38:58 2022 +0200
+
+    Update visualization pages
+
+ code/visualization/pages/etlresult.html     |  2 [32m+[m
+ code/visualization/pages/etlstatus.html     |  2 [31m-[m
+ code/visualization/pages/index.html         | 29 [32m+++++++++[m[31m--[m
+ code/visualization/pages/mapresult.html     |  2 [32m+[m
+ code/visualization/pages/mlresult.html      |  2 [32m+[m
+ code/visualization/pages/result.html        |  2 [31m-[m
+ code/visualization/pages/status.html        |  2 [32m+[m
+ code/visualization/visualization-process.py | 81 [32m+++++++++++++++++[m[31m------------[m
+ 8 files changed, 80 insertions(+), 42 deletions(-)
+
+[33mcommit c0b10d593fde3c7731e7ad650939cf8f9d15de92[m
+Author: vcmueller <vanessa.cmueller@icloud.com>
+Date:   Sun Apr 17 17:38:15 2022 +0200
+
+    Add common method to lib
+
+ code/etl/etl_process.py | 60 [32m+++++++[m[31m---------------------------[m
+ code/lib/dbstatus.py    | 50 [32m++++++++++++++++++++++++++++[m
+ code/ml/ml-process.py   | 86 [32m+++++++++++[m[31m--------------------------------------[m
+ 3 files changed, 80 insertions(+), 116 deletions(-)
+
+[33mcommit 12bc905548c9021e21ee3580ac1a3a8af9db8fbb[m
+Author: vcmueller <vanessa.cmueller@icloud.com>
+Date:   Sun Apr 17 14:04:21 2022 +0200
+
+    Update folders structure
+
+ {etl => code/etl}/etl_process.py                             |  4 [32m++[m[31m--[m
+ {etl => code/etl}/testetlcode.ipynb                          |  0
+ {etl => code/lib}/dbconfig.py                                |  0
+ {ml => code/ml}/ml-process.py                                |  0
+ {ml => code/ml}/testmlcode.ipynb                             |  0
+ {visualization => code/visualization}/nginx/default.conf     |  0
+ {visualization => code/visualization}/pages/etlstatus.html   |  0
+ {visualization => code/visualization}/pages/index.html       |  0
+ {visualization => code/visualization}/pages/result.html      |  0
+ {visualization => code/visualization}/testbokehcode.ipynb    |  0
+ .../visualization}/visualization-process.py                  |  0
+ {etl/data => data}/city_temperature-1.csv                    |  0
+ {etl/data => data}/city_temperature-2.csv                    |  0
+ docker-compose.yaml                                          | 12 [32m+++++++++[m[31m---[m
+ etl/Dockerfile => dockerfiles/etl.dockerfile                 |  4 [32m+++[m[31m-[m
+ ml/Dockerfile => dockerfiles/ml.dockerfile                   |  3 [32m++[m[31m-[m
+ .../Dockerfile => dockerfiles/visualization.dockerfile       |  3 [32m++[m[31m-[m
+ ml/dbconfig.py                                               |  4 [31m----[m
+ visualization/dbconfig.py                                    |  4 [31m----[m
+ 19 files changed, 18 insertions(+), 16 deletions(-)
+
+[33mcommit 89d18c4f776f85d6c9ca4b56e2efb5b685370414[m
+Author: vcmueller <vanessa.cmueller@icloud.com>
+Date:   Sat Apr 16 23:44:39 2022 +0200
+
+    Add basic visualization
+
+ visualization/Dockerfile               |  11 [32m++[m[31m-[m
+ visualization/dbconfig.py              |   4 [32m+[m
+ visualization/pages/index.html         |   4 [32m+[m[31m-[m
+ visualization/testbokehcode.ipynb      |  52 [32m++++++++++[m[31m-[m
+ visualization/visualization-process.py | 155 [32m+++++++++++++++++++++++++++[m[31m------[m
+ 5 files changed, 193 insertions(+), 33 deletions(-)
+
+[33mcommit 67f904aeb57105d9b5c427225aae8cf0efcd3ff3[m
+Author: vcmueller <vanessa.cmueller@icloud.com>
+Date:   Sat Apr 16 18:25:01 2022 +0200
+
+    Add waiting delay based on status
+
+ etl/etl_process.py | 27 [32m++++++++++++++++[m[31m-----------[m
+ ml/ml-process.py   | 54 [32m++++++++++++++++++++++++++++++++++++++++++++++++++++[m[31m--[m
+ 2 files changed, 68 insertions(+), 13 deletions(-)
+
+[33mcommit 3ab6ecf5b6af358c01b37bbeefa75cf632d16336[m
+Author: vcmueller <vanessa.cmueller@icloud.com>
+Date:   Fri Apr 15 23:46:26 2022 +0200
+
+    Add Bokeh container and initial code
+
+ docker-compose.yaml                    |   9 [32m++[m
+ ml/read.py                             |  19 [31m---[m
+ visualization/Dockerfile               |  11 [32m++[m
+ visualization/nginx/default.conf       |  44 [32m++++++[m
+ visualization/pages/etlstatus.html     |   2 [32m+[m
+ visualization/pages/index.html         |   3 [32m+[m
+ visualization/pages/result.html        |   2 [32m+[m
+ visualization/testbokehcode.ipynb      | 267 [32m+++++++++++++++++++++++++++++++++[m
+ visualization/visualization-process.py |  33 [32m++++[m
+ 9 files changed, 371 insertions(+), 19 deletions(-)
+
+[33mcommit 3c93227e0438162ba8e6d325e88dc01e48d2db73[m
+Author: vcmueller <vanessa.cmueller@icloud.com>
+Date:   Thu Apr 14 16:41:07 2022 +0200
+
+    Adding ML Code
+
+ docker-compose.yaml |   1 [32m+[m
+ etl/etl_process.py  |   8 [32m+[m[31m-[m
+ ml/Dockerfile       |   3 [32m+[m[31m-[m
+ ml/dbconfig.py      |   4 [32m+[m
+ ml/ml-process.py    | 151 [32m++++++++++[m
+ ml/read.py          |   1 [32m+[m
+ ml/testmlcode.ipynb | 774 [32m++++++++++++++++++++++++++++++++++++++++++++++++++++[m
+ 7 files changed, 937 insertions(+), 5 deletions(-)
+
+[33mcommit d17e7746dda4b10cda47196365c6c3ec2e1f2e93[m
+Author: vcmueller <vanessa.cmueller@icloud.com>
+Date:   Wed Apr 13 22:00:15 2022 +0200
+
+    Initial commit
+
+ Architecture/Architecture.png   |     Bin [31m0[m -> [32m132331[m bytes
+ README.md                       |      19 [32m+[m[31m-[m
+ docker-compose.yaml             |      38 [32m+[m
+ etl/Dockerfile                  |       6 [32m+[m
+ etl/data/city_temperature-1.csv | 1500000 [32m++++++++++++++++++++++++++++++++++++[m
+ etl/data/city_temperature-2.csv | 1406329 [32m+++++++++++++++++++++++++++++++++[m
+ etl/dbconfig.py                 |       4 [32m+[m
+ etl/etl_process.py              |     252 [32m+[m
+ etl/testetlcode.ipynb           |     734 [32m+[m
+ ml/Dockerfile                   |       7 [32m+[m
+ ml/read.py                      |      18 [32m+[m
+ 11 files changed, 2907406 insertions(+), 1 deletion(-)
+
+[33mcommit 1302bae7a47c1441262189059294b8f2de047034[m
+Author: vcmueller <63685240+vcmueller@users.noreply.github.com>
+Date:   Sun Mar 27 21:27:56 2022 +0200
+
+    Initial commit
+
+ README.md | 1 [32m+[m
+ 1 file changed, 1 insertion(+)
