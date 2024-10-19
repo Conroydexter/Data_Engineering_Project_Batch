@@ -35,11 +35,11 @@ Note: Docker and Docker-compose are pre-requisites to execute the project.
 
 - i Clone the GitHub repository:
 
-git clone https://github.com/Conroydexter/Batch-Data-Engineering-Project-project-.git
+git clone https://github.com/Conroydexter/Data_Engineering_Project_Batch.git
 
 - ii Go into the cloned repository folder:
 
-cd data_engineering_project
+cd Data_Engineering_Project_Batch
 
 - iii Execute the following docker-compose command to build the docker images:
 
